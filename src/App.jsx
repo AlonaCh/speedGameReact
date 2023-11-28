@@ -13,7 +13,7 @@ function App() {
   const [player, setPlayer] = useState();
   const [circles, setCircles] = useState([]) // it is empty array because map method looking for array
   const [score, setScore] = useState(10);
-  const [gameLaunch, setgameLaunch] = useState(true)
+  const [gameLaunch, setGameLaunch] = useState(true)
   const [gameStart, setGameStart] = useState(false)
   const [gameOver, setGameOver] = useState(false)
 
@@ -36,11 +36,11 @@ function App() {
         name: name
       }
     )
-    setgameLaunch(!gameLaunch)
+    setGameLaunch(!gameLaunch)
     setGameStart(!gameStart)
   }
 
-  stopHandler = () => {
+  const stopHandler = () => {
     setGameStart(!gameStart)
     setGameOver(!gameOver)
   }
