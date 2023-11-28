@@ -1,6 +1,6 @@
 export default function Circle() {
     return (
-        <div>
+        <div className="circle">
             <p>Will be here circle</p>
         </div>
     )
