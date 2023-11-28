@@ -1,3 +1,5 @@
+import Circle from '../Uicomponents/Circle'
+
 export default function Game({ score, circles, stopHandler }) {
     return (
         <div>

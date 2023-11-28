@@ -4,12 +4,19 @@ import Circle from './Uicomponents/Circle'
 import './index.css'
 import NewGame from "./components/NewGame"
 import Game from './components/Game'
+import GameOver from './components/GameOver'
 
+// have a condition -> by default show NewGame and after getting data for Game, hide NewGame and display Game
+// new component gameover (by default hidden) wiil hide Game
 
 function App() {
   const [player, setPlayer] = useState();
   const [circles, setCircles] = useState([]) // it is empty array because map method looking for array
   const [score, setScore] = useState(10);
+  const [gameLaunch, setgameLaunch] = useState(true)
+  const [gameStart, setGameStart] = useState(false)
+  const [gameOver, setGameOver] = useState(false)
+
 
   const gameSetHandler = (level, name) => {
     // it is from onclick('easy')
@@ -29,14 +36,21 @@ function App() {
         name: name
       }
     )
+    setgameLaunch(!gameLaunch)
+    setGameStart(!gameStart)
   }
-  console.log(player);
+
+  stopHandler = () => {
+    setGameStart(!gameStart)
+    setGameOver(!gameOver)
+  }
 
   return (
     <>
       <p>Catch me!</p>
-      <NewGame onclick={gameSetHandler} />
-      <Game score={score} circles={circles} />
+      {gameLaunch && <NewGame onclick={gameSetHandler} />}
+      {gameStart && <Game score={score} circles={circles} stopHandler={stopHandler} />}
+      {gameOver && <GameOver />}
     </>
   )
 }
