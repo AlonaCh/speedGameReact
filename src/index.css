@@ -18,4 +18,14 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+.circle {
+  background-color: bisque;
+  border-radius: 50%;
+  color:#242424;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+}
