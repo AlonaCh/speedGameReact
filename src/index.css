@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa&family=Dosis:wght@300&family=Frank+Ruhl+Libre:wght@300&family=Lato:ital,wght@0,300;1,400&family=PT+Mono&family=Playfair+Display&family=Poppins:wght@200&family=Roboto+Condensed:wght@300&family=Tourney:ital,wght@0,500;1,400&display=swap');
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family:'Tourney', sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.87);
@@ -16,9 +18,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   min-width: 320px;
   min-height: 100vh;
+  background: url(backpic.jpg);
+  background-size: cover;
+  color: rgb(85, 57, 5);
+  font-family: 'Tourney', cursive;
 }
+  h1 {
+    font-size: 80px;
+    text-shadow: 2px 2px #536004;
+  }
 .circle {
   background-color: bisque;
   border-radius: 50%;
@@ -29,4 +40,55 @@ body {
   justify-content: center;
   align-items: center;
 
+}
+.overlayModal {
+  display: none; 
+  position: fixed; /* Stay in place */
+  left: 0;
+  top: 0;
+  width: 100vw; /* Full width */
+  height: 100vh; /* view port high */
+  background-color: rgba(0, 0, 0, 0.4); /* Fallback color */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color:#E5CEB8;
+  margin: 2rem;
+  padding: 3rem;
+  border: 0.5px solid #553906;
+  border-radius: 13px;
+  width: 600px;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+.close {
+  color: #E5CEB8;
+  border-radius: 20px;
+  border: 0.5px solid #553906;
+  padding: 5px;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.circles {
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.circle {
+  width: 250px;
+    height: 250px;
+    background-color: #b3a043;
+    border-radius: 50%;
+    border-top-style: dotted;
+    box-shadow: 3px 3px 1px 3px #553906;;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    pointer-events: none;
 }

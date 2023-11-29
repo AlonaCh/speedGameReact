@@ -1,7 +1,7 @@
-export default function Circle() {
+export default function Circle({ id }) {
     return (
         <div className="circle">
-            <p>Will be here circle</p>
+            <p>{id}</p>
         </div>
     )
 }

@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { levels } from './levels'
-import Circle from './Uicomponents/Circle'
 import './index.css'
 import NewGame from "./components/NewGame"
 import Game from './components/Game'
@@ -12,7 +11,7 @@ import GameOver from './components/GameOver'
 function App() {
   const [player, setPlayer] = useState();
   const [circles, setCircles] = useState([]) // it is empty array because map method looking for array
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(10);
   const [gameLaunch, setGameLaunch] = useState(true)
   const [gameStart, setGameStart] = useState(false)
   const [gameOver, setGameOver] = useState(false)
@@ -24,9 +23,8 @@ function App() {
     const levelIndex = levels.findIndex(element =>  // go through untill you find it
       element.name === level);
 
-    const levelAmount = levels[levelIndex].amount //index of levels and adressing object
-
-    const circlesArray = Array.from({ length: levelAmount }, (x, i) => i);
+    const levelAmountCircles = levels[levelIndex].amount //index of levels and adressing object
+    const circlesArray = Array.from({ length: levelAmountCircles }, (x, i) => i);
 
     setCircles(circlesArray);
     console.log('circlesArray', circlesArray);
@@ -44,13 +42,18 @@ function App() {
     setGameStart(!gameStart)
     setGameOver(!gameOver)
   }
+  const closeHandler = () => {
+    setGameOver(!gameOver)
+    setGameLaunch(!gameLaunch)
+    setScore(0)
+  }
 
   return (
     <>
-      <p>Catch me!</p>
+      <h1>Catch me!</h1>
       {gameLaunch && <NewGame onclick={gameSetHandler} />}
       {gameStart && <Game score={score} circles={circles} stopHandler={stopHandler} />}
-      {gameOver && <GameOver />}
+      {gameOver && <GameOver {...player} closeHandler={closeHandler} score={score} />}
     </>
   )
 }
