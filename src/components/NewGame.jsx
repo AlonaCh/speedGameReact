@@ -9,7 +9,7 @@ function NewGame({ onclick }) { // props from App(parent)
     }
     return (
         <div>
-            <h2>Start a game by choosing a level</h2>
+            <h2>Start a game by writing your name and choosing a level</h2>
             <input type="text" onChange={inputHandler} />
             <div>
 

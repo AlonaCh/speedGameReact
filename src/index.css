@@ -30,17 +30,6 @@ body {
     font-size: 80px;
     text-shadow: 2px 2px #536004;
   }
-.circle {
-  background-color: bisque;
-  border-radius: 50%;
-  color:#242424;
-  height: 100px;
-  width: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
 .overlayModal {
   display: none; 
   position: fixed; /* Stay in place */
@@ -77,11 +66,10 @@ body {
   display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
 }
 .circle {
-  width: 250px;
-    height: 250px;
+  width: 150px;
+  height: 150px;
     background-color: #b3a043;
     border-radius: 50%;
     border-top-style: dotted;
@@ -91,4 +79,12 @@ body {
     justify-content: center;
     margin: 1rem;
     pointer-events: none;
+}
+input{
+  padding:0.8rem 2rem;
+  font-family: inherit;
+  font-size: inherit;
+  border-radius: 20px;
+  border: none;
+  margin: 2rem;
 }
