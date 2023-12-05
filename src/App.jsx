@@ -21,18 +21,18 @@ function App() {
   const [gameOver, setGameOver] = useState(false)
   const [current, setCurrent] = useState(-1) //0 is a first element. we need to compare so we need some number
 
-  let timer;
+  let timer; // code was amount
   let pace = 1000;
 
 
   const gameSetHandler = (level, name) => {
     // it is from onclick('easy')
     // based on level, we find the matching object from levels array, and then make a array for the circles, with amount in the object.
-    const levelIndex = levels.findIndex(element =>  // go through untill you find it
+    const levelIndex = levels.findIndex(element =>  // go through untill you find it. It renders index
       element.name === level);
 
-    const levelAmountCircles = levels[levelIndex].amount //index of levels and adressing object
-    const circlesArray = Array.from({ length: levelAmountCircles }, (x, i) => i);
+    const levelAmountCircles = levels[levelIndex].amount //index of levels and adressing object. 
+    const circlesArray = Array.from({ length: levelAmountCircles }, (_, i) => i); //how many elements has to be there. put index inside. (_, i) => i) reserve place for element but we do not use it
 
     setCircles(circlesArray);
     console.log('circlesArray', circlesArray);
@@ -42,7 +42,7 @@ function App() {
         name: name
       }
     )
-    setGameLaunch(!gameLaunch)
+    setGameLaunch((previousLaunch) => !gameLaunch) // To be sure it goes and check the current state. (previousState + 1). 
     setGameStart(!gameStart)
     randomNumber()
   }
