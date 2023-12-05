@@ -31,8 +31,8 @@ body {
     text-shadow: 2px 2px #536004;
   }
 .overlayModal {
-  display: none; 
-  position: fixed; /* Stay in place */
+/*   display: none; 
+ */  position: fixed; /* Stay in place */
   left: 0;
   top: 0;
   width: 100vw; /* Full width */

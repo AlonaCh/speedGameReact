@@ -45,14 +45,14 @@ function App() {
         name: name
       }
     )
-    setGameLaunch((previousLaunch) => !previousLaunch) // To be sure it goes and check the current state. (previousState + 1). !gameLaunch
+    setGameLaunch((prevState) => !prevState) // To be sure it goes and check the current state. (previousState + 1). !gameLaunch
     setGameStart(!gameStart)
     randomNumber()
   }
 
   const stopHandler = () => {
-    setGameStart(gameStart === false);
-    setGameOver(gameOver === false);
+    setGameStart((prevState) => !prevState);
+    setGameOver(!gameOver);
     clearTimeout(timeoutIdRef.current);
     timeoutIdRef.current = null
   }
