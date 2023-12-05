@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { levels } from './levels'
 import './index.css'
 import NewGame from "./components/NewGame"
@@ -21,9 +21,12 @@ function App() {
   const [gameOver, setGameOver] = useState(false)
   const [current, setCurrent] = useState(-1) //0 is a first element. we need to compare so we need some number
 
-  let timer; // code was amount
-  let pace = 1000;
+  const timeoutIdRef = useRef(null);
+  const rounds = useRef(0);
+  const currentInst = useRef(0); // highliter
 
+  let pace = 1000;
+  let levelAmountCircles;
 
   const gameSetHandler = (level, name) => {
     // it is from onclick('easy')
@@ -31,27 +34,27 @@ function App() {
     const levelIndex = levels.findIndex(element =>  // go through untill you find it. It renders index
       element.name === level);
 
-    const levelAmountCircles = levels[levelIndex].amount //index of levels and adressing object. 
-    const circlesArray = Array.from({ length: levelAmountCircles }, (_, i) => i); //how many elements has to be there. put index inside. (_, i) => i) reserve place for element but we do not use it
+    levelAmountCircles = levels[levelIndex].amount //index of levels and adressing object. 
 
+    //const {amount} = levels.find((element) => element.name === level);
+    const circlesArray = Array.from({ length: levelAmountCircles }, (_, i) => i); //how many elements has to be there. put index inside. (_, i) => i) reserve place for element but we do not use it
     setCircles(circlesArray);
-    console.log('circlesArray', circlesArray);
     setPlayer(
       {
         level: level,
         name: name
       }
     )
-    setGameLaunch((previousLaunch) => !gameLaunch) // To be sure it goes and check the current state. (previousState + 1). 
+    setGameLaunch((previousLaunch) => !previousLaunch) // To be sure it goes and check the current state. (previousState + 1). !gameLaunch
     setGameStart(!gameStart)
     randomNumber()
   }
 
   const stopHandler = () => {
-    setGameStart(!gameStart)
-    setGameOver(!gameOver)
-    clearTimeout(timer)
-
+    setGameStart(gameStart === false);
+    setGameOver(gameOver === false);
+    clearTimeout(timeoutIdRef.current);
+    timeoutIdRef.current = null
   }
 
   const closeHandler = () => {
@@ -62,21 +65,32 @@ function App() {
 
   const circleClickHandler = (id) => {
     console.log('circle was clicked:', id) // it takes some data from event
+    if (current !== id) {
+      stopHandler();
+      return; // it is like break here
+    }
     setScore(score + 10);
+    rounds.current--;
   };
 
   // after gameLaunch it starts
   const randomNumber = () => {
+    if (rounds.current >= 3) {
+      stopHandler();
+      return;
+    }
     let nextActive;
 
     do {
-      nextActive = getRandomNumber(0, circles.length) // it has to compare nextActive is same as current do it again
-    } while (nextActive === current);
+      nextActive = getRandomNumber(0, levelAmountCircles) // it has to compare //(0, circles.length) nextActive is same as current do it again
+    } while (nextActive === currentInst.current);//
 
     setCurrent(nextActive)
-    console.log(nextActive)
-
-    timer = setTimeout(randomNumber, pace) // we will triger 
+    currentInst.current = nextActive;
+    rounds.current++;
+    timeoutIdRef.current = setTimeout(randomNumber, pace) // we will triger 
+    pace *= 0.95;
+    console.log(nextActive);
   }
 
 
@@ -88,7 +102,8 @@ function App() {
         score={score}
         circles={circles}
         stopHandler={stopHandler}
-        circleClickHandler={circleClickHandler} />}
+        circleClickHandler={circleClickHandler}
+        current={current} />}
       {gameOver && <GameOver {...player} closeHandler={closeHandler} score={score} />}
     </>
   )

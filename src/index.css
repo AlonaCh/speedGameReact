@@ -78,7 +78,11 @@ body {
     align-items: center;
     justify-content: center;
     margin: 1rem;
-    pointer-events: none;
+/*     pointer-events: none;
+ */}
+.circle.active {
+  color: red;
+
 }
 input{
   padding:0.8rem 2rem;

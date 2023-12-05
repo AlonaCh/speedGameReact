@@ -1,6 +1,6 @@
 export default function GameOver({ name, level, closeHandler, score }) {
     return (
-        <div claasName="overlayModal">
+        <div className="overlayModal">
             <div className="modal">
                 <p>Hi {name}!</p>
                 <h1>GAME OVER</h1>
