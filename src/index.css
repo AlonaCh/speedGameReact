@@ -40,6 +40,7 @@ body {
   background-color: rgba(0, 0, 0, 0.4); /* Fallback color */
   justify-content: center;
   align-items: center;
+ display: flex;
 }
 
 .modal {
@@ -52,6 +53,7 @@ body {
   position: relative;
   text-align: center;
   cursor: pointer;
+  align-items: center;
 }
 .close {
   color: #E5CEB8;
