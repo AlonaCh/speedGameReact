@@ -5,8 +5,6 @@ import NewGame from "./components/NewGame"
 import Game from './components/Game'
 import GameOver from './components/GameOver'
 
-// have a condition -> by default show NewGame and after getting data for Game, hide NewGame and display Game
-// new component gameover (by default hidden) wiil hide Game
 
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -21,9 +19,11 @@ function App() {
   const [gameOver, setGameOver] = useState(false)
   const [current, setCurrent] = useState(-1) //0 is a first element. we need to compare so we need some number
 
-  const timeoutIdRef = useRef(null);
+  const timeoutIdRef = useRef(null); //storing the ID of previous timeout function
   const rounds = useRef(0);
   const currentInst = useRef(0); // highliter
+
+  //Sounds
 
   let pace = 1000;
   let levelAmountCircles;
@@ -45,7 +45,7 @@ function App() {
         name: name
       }
     )
-    setGameLaunch((prevState) => !prevState) // To be sure it goes and check the current state. (previousState + 1). !gameLaunch
+    setGameLaunch((prevState) => !prevState) // To be sure it goes and check the current state. (previousState + 1).This expression negates the previous state. !gameLaunch
     setGameStart(!gameStart)
     randomNumber()
   }
@@ -75,7 +75,7 @@ function App() {
 
   // after gameLaunch it starts
   const randomNumber = () => {
-    if (rounds.current >= 3) {
+    if (rounds.current >= 100) {
       stopHandler();
       return;
     }

@@ -1,6 +1,10 @@
 import Circle from '../Uicomponents/Circle'
+import soundGame from "../assets/running.mp3"
 
 export default function Game({ score, circles, stopHandler, circleClickHandler, current }) {
+    const soundGameStart = new Audio(soundGame);
+    console.log(soundGameStart)
+    soundGameStart.play();
     return (
         <div>
             <p>{score}</p>
@@ -10,6 +14,7 @@ export default function Game({ score, circles, stopHandler, circleClickHandler, 
                     <Circle key={i} id={i} circleClickHandler={circleClickHandler}
                         //// compare if it is yes it gets the statuse
                         current={current === i} />)}
+
             </div>
             <button onClick={stopHandler}>Stop game</button>
         </div >

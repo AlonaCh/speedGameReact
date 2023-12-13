@@ -72,10 +72,9 @@ body {
 .circle {
   width: 150px;
   height: 150px;
-    background-color: #b3a043;
+   /*  background-color: #b3a043; */
     border-radius: 50%;
-    border-top-style: dotted;
-    box-shadow: 3px 3px 1px 3px #553906;;
+    border: dotted;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,9 +82,39 @@ body {
 /*     pointer-events: none;
  */}
 .circle.active {
-  color: red;
+    box-shadow: 3px 3px 1px 3px #553906;
+/*     pointer-events: none;
+ */}
 
+ .circle1.active  {
+    background-image: url(assets/hare1.jpg);
+    background-size: cover;
 }
+.circle2.active  {
+    background-image: url(assets/hare4.jpg);
+    background-size: cover;
+}
+.circle3.active  {
+    background-image: url(assets/hare6.jpg);
+    background-size: cover;
+}
+.circle4.active  {
+    background-image: url(assets/hare.jpg);
+    background-size: cover;
+}
+.circle5.active  {
+  background-image: url(assets/hare2.jpg);
+  background-size: cover;
+}
+.circle6.active  {
+  background-image: url(assets/hare.jpg);
+  background-size: cover;
+}
+.circle7.active  {
+  background-image: url(assets/hare.jpg);
+  background-size: cover;
+}
+
 input{
   padding:0.8rem 2rem;
   font-family: inherit;

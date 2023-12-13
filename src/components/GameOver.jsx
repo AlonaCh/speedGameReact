@@ -1,4 +1,9 @@
+import gameOverSound from "../assets/gameOver.mp3"
+
 export default function GameOver({ name, level, closeHandler, score }) {
+    const gameOverSoundlose = new Audio(gameOverSound);
+
+    gameOverSoundlose.play();
     return (
         <div className="overlayModal">
             <div className="modal">
