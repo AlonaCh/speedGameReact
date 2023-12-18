@@ -4,6 +4,9 @@ import './index.css'
 import NewGame from "./components/NewGame"
 import Game from './components/Game'
 import GameOver from './components/GameOver'
+import gameOverSound from "./assets/gameOver.mp3"
+import soundGame from "./assets/running.mp3"
+
 
 
 function getRandomNumber(min, max) {
@@ -24,6 +27,9 @@ function App() {
   const currentInst = useRef(0); // highliter
 
   //Sounds
+  const gameOverAudio = useRef(new Audio(gameOverSound));
+  const gameStartAudio = useRef(new Audio(soundGame));
+
 
   let pace = 1000;
   let levelAmountCircles;
@@ -47,6 +53,7 @@ function App() {
     )
     setGameLaunch((prevState) => !prevState) // To be sure it goes and check the current state. (previousState + 1).This expression negates the previous state. !gameLaunch
     setGameStart(!gameStart)
+    //gameStartAudio.play();
     randomNumber()
   }
 
@@ -54,7 +61,8 @@ function App() {
     setGameStart((prevState) => !prevState);
     setGameOver(!gameOver);
     clearTimeout(timeoutIdRef.current);
-    timeoutIdRef.current = null
+    timeoutIdRef.current = null;
+    //gameStartAudio.pause();
   }
 
   const closeHandler = () => {
@@ -75,7 +83,7 @@ function App() {
 
   // after gameLaunch it starts
   const randomNumber = () => {
-    if (rounds.current >= 100) {
+    if (rounds.current >= 3) {
       stopHandler();
       return;
     }
@@ -93,6 +101,18 @@ function App() {
     console.log(nextActive);
   }
 
+  //Audio handler
+  function audioHandler() {
+    if (gameStart) {
+      gameStartAudio.current.play();
+    } else if (gameOver) {
+      gameStartAudio.current.pause();
+      gameOverAudio.current.play();
+    } else {
+      gameStartAudio.current.pause();
+    }
+  }
+
 
   return (
     <>
@@ -103,8 +123,9 @@ function App() {
         circles={circles}
         stopHandler={stopHandler}
         circleClickHandler={circleClickHandler}
-        current={current} />}
-      {gameOver && <GameOver {...player} closeHandler={closeHandler} score={score} />}
+        current={current}
+        audioHandler={audioHandler} />}
+      {gameOver && <GameOver {...player} closeHandler={closeHandler} score={score} audioHandler={audioHandler} />}
     </>
   )
 }

@@ -1,10 +1,9 @@
 import Circle from '../Uicomponents/Circle'
 import soundGame from "../assets/running.mp3"
 
-export default function Game({ score, circles, stopHandler, circleClickHandler, current }) {
-    const soundGameStart = new Audio(soundGame);
-    console.log(soundGameStart)
-    soundGameStart.play();
+export default function Game({ score, circles, stopHandler, circleClickHandler, current, audioHandler }) {
+    audioHandler();
+
     return (
         <div>
             <p>{score}</p>

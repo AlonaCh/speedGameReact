@@ -7,6 +7,7 @@ function NewGame({ onclick }) { // props from App(parent)
     const inputHandler = (e) => {
         setName(e.target.value)
     }
+
     return (
         <div>
             <h2>Start a game by writing your name and choosing a level</h2>
