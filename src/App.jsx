@@ -63,12 +63,15 @@ function App() {
     clearTimeout(timeoutIdRef.current);
     timeoutIdRef.current = null;
     //gameStartAudio.pause();
+    //gameOverAudio.play();
   }
 
   const closeHandler = () => {
     setGameOver(!gameOver)
     setGameLaunch(!gameLaunch)
     setScore(0)
+    //gameStartAudio.pause();
+    //gameOverAudio.play();
   }
 
   const circleClickHandler = (id) => {
