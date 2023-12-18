@@ -115,6 +115,9 @@ function App() {
       gameStartAudio.current.pause();
     }
   }
+  const homeHandler = () => {
+    window.location.reload();
+  }
 
 
   return (
@@ -128,7 +131,7 @@ function App() {
         circleClickHandler={circleClickHandler}
         current={current}
         audioHandler={audioHandler} />}
-      {gameOver && <GameOver {...player} closeHandler={closeHandler} score={score} audioHandler={audioHandler} />}
+      {gameOver && <GameOver {...player} closeHandler={closeHandler} score={score} audioHandler={audioHandler} homeHandler={homeHandler} />}
     </>
   )
 }

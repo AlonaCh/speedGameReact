@@ -1,6 +1,6 @@
 
 
-export default function GameOver({ name, level, closeHandler, score, audioHandler }) {
+export default function GameOver({ name, level, closeHandler, score, audioHandler, homeHandler }) {
 
     audioHandler();
 
@@ -8,7 +8,7 @@ export default function GameOver({ name, level, closeHandler, score, audioHandle
     return (
         <div className="overlayModal">
             <div className="modal">
-                <p>Hi {name}!</p>
+                <p>Hi {name.toUpperCase()}!</p>
                 <h1>GAME OVER</h1>
                 <div className="gameInfo">
                     <p>Your score is:  {score <= 40
@@ -20,9 +20,9 @@ export default function GameOver({ name, level, closeHandler, score, audioHandle
                                 ? `${score}🐇 You are super fast!`
                                 : ` ${score}🐰 You are a rocket!`}</p>
 
-                    <p>Your level is: {level}</p>
+                    <p>Your level is: {level.toUpperCase()}</p>
                 </div>
-                <p>Will be here gameovere</p>
+                <button className="home" onClick={homeHandler}>Home</button>
                 <button className="close" onClick={closeHandler}>
                     <span className="material-symbols-outlined"> X </span>
                 </button>
