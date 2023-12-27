@@ -8,7 +8,7 @@ export default function GameOver({ name, level, closeHandler, score, audioHandle
     return (
         <div className="overlayModal">
             <div className="modal">
-                <p>Hi {name.toUpperCase()}!</p>
+                <p className="greeting">Hi {name.toUpperCase()}!</p>
                 <h1>GAME OVER</h1>
                 <div className="gameInfo">
                     <p>Your score is:  {score <= 40

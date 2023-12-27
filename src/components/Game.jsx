@@ -15,7 +15,7 @@ export default function Game({ score, circles, stopHandler, circleClickHandler, 
                         current={current === i} />)}
 
             </div>
-            <button onClick={stopHandler}>Stop game</button>
+            <button className="stopBtn" onClick={stopHandler}>Stop game</button>
         </div >
     )
 }

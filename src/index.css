@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Changa&family=Dosis:wght@300&family=Frank+Ruhl+Libre:wght@300&family=Lato:ital,wght@0,300;1,400&family=PT+Mono&family=Playfair+Display&family=Poppins:wght@200&family=Roboto+Condensed:wght@300&family=Tourney:ital,wght@0,500;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tourney:wght@800&display=swap');
 
 :root {
   font-family:'Tourney', sans-serif;
@@ -31,13 +31,12 @@ body {
     text-shadow: 2px 2px #536004;
   }
 .overlayModal {
-/*   display: none; 
- */  position: fixed; /* Stay in place */
+ position: fixed; 
   left: 0;
   top: 0;
-  width: 100vw; /* Full width */
-  height: 100vh; /* view port high */
-  background-color: rgba(0, 0, 0, 0.4); /* Fallback color */
+  width: 100vw; 
+  height: 100vh; 
+  background-color: rgba(0, 0, 0, 0.4); 
   justify-content: center;
   align-items: center;
  display: flex;
@@ -59,7 +58,7 @@ body {
   color: #E5CEB8;
   border-radius: 20px;
   border: 0.5px solid #553906;
-  padding: 5px;
+  padding: 8px;
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -72,19 +71,16 @@ body {
 .circle {
   width: 150px;
   height: 150px;
-   /*  background-color: #b3a043; */
     border-radius: 50%;
     border: dotted;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 1rem;
-/*     pointer-events: none;
- */}
+}
 .circle.active {
     box-shadow: 3px 3px 1px 3px #553906;
-/*     pointer-events: none;
- */}
+ }
 
  .circle1.active  {
     background-image: url(assets/hare1.jpg);
@@ -116,10 +112,30 @@ body {
 }
 
 input{
-  padding:0.8rem 2rem;
+  padding:1rem 2rem;
   font-family: inherit;
   font-size: inherit;
   border-radius: 20px;
   border: none;
-  margin: 2rem;
+  margin-bottom: 2.5rem;
+  margin-top: 0.5rem;
+  opacity: 0.7;
+  background-color: #B3A043;
+  border: 1px solid #553906;
+}
+.levelBtn,
+.home,
+.stopBtn {
+  padding: 20px 30px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 1px solid #553906;
+  font-size: 20px;
+  font-weight: bolder;
+  color: rgb(85, 57, 5);
+  background-color: #B3A043;
+  opacity: 0.7;
+}
+.gameInfo, .greeting {
+  font-size: 22px;
 }

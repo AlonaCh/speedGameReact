@@ -25,9 +25,8 @@ export default function Circle({ id, circleClickHandler, current }) {
     return (
 
         <div className={`circle ${circleImage} ${current ? 'active' : ''}`}
-            /*id={id === current ? circleImage : undefined}*/
             id={`circle${id + 1}`}
-            onClick={() => { circleClickHandler(id) }}> {/* id in a Game component, we have index(i) so it is acctualy i that we pass from the key. we pass circleClickHandler from App to Game to Circle. clickHndler in App recives the id from here. event send data up! clickhandlar will modify score that is in App. So state is there clickHandlar has to be there*/}
+            onClick={() => { circleClickHandler(id) }}>
 
             <p>{id}</p>
         </div >

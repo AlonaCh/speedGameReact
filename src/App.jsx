@@ -75,7 +75,7 @@ function App() {
   }
 
   const circleClickHandler = (id) => {
-    console.log('circle was clicked:', id) // it takes some data from event
+    // console.log('circle was clicked:', id) // it takes some data from event
     if (current !== id) {
       stopHandler();
       return; // it is like break here
