@@ -5,8 +5,6 @@
   line-height: 1.5;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -21,7 +19,7 @@ body {
   text-align: center;
   min-width: 320px;
   min-height: 100vh;
-  background: url(backpic.jpg);
+  background: url(assets/backpic.jpg);
   background-size: cover;
   color: rgb(85, 57, 5);
   font-family: 'Tourney', cursive;
