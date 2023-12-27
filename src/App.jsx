@@ -16,7 +16,7 @@ function getRandomNumber(min, max) {
 function App() {
   const [player, setPlayer] = useState();
   const [circles, setCircles] = useState([]) // it is empty array because map method looking for array
-  const [score, setScore] = useState(10);
+  const [score, setScore] = useState(0);
   const [gameLaunch, setGameLaunch] = useState(true)
   const [gameStart, setGameStart] = useState(false)
   const [gameOver, setGameOver] = useState(false)
@@ -37,7 +37,7 @@ function App() {
   const gameSetHandler = (level, name) => {
     // it is from onclick('easy')
     // based on level, we find the matching object from levels array, and then make a array for the circles, with amount in the object.
-    const levelIndex = levels.findIndex(element =>  // go through untill you find it. It renders index
+    const levelIndex = levels.findIndex(element =>
       element.name === level);
 
     levelAmountCircles = levels[levelIndex].amount //index of levels and adressing object. 
@@ -51,6 +51,7 @@ function App() {
         name: name
       }
     )
+
     setGameLaunch((prevState) => !prevState) // To be sure it goes and check the current state. (previousState + 1).This expression negates the previous state. !gameLaunch
     setGameStart(!gameStart)
     //gameStartAudio.play();
@@ -62,16 +63,14 @@ function App() {
     setGameOver(!gameOver);
     clearTimeout(timeoutIdRef.current);
     timeoutIdRef.current = null;
-    //gameStartAudio.pause();
-    //gameOverAudio.play();
+
   }
 
   const closeHandler = () => {
     setGameOver(!gameOver)
     setGameLaunch(!gameLaunch)
     setScore(0)
-    //gameStartAudio.pause();
-    //gameOverAudio.play();
+
   }
 
   const circleClickHandler = (id) => {
@@ -101,7 +100,6 @@ function App() {
     rounds.current++;
     timeoutIdRef.current = setTimeout(randomNumber, pace) // we will triger 
     pace *= 0.95;
-    console.log(nextActive);
   }
 
   //Audio handler

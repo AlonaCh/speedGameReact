@@ -1,5 +1,4 @@
 import Circle from '../Uicomponents/Circle'
-import soundGame from "../assets/running.mp3"
 
 export default function Game({ score, circles, stopHandler, circleClickHandler, current, audioHandler }) {
     audioHandler();
