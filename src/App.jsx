@@ -15,18 +15,17 @@ function getRandomNumber(min, max) {
 
 function App() {
   const [player, setPlayer] = useState();
-  const [circles, setCircles] = useState([]) // it is empty array because map method looking for array
+  const [circles, setCircles] = useState([])
   const [score, setScore] = useState(0);
   const [gameLaunch, setGameLaunch] = useState(true)
   const [gameStart, setGameStart] = useState(false)
   const [gameOver, setGameOver] = useState(false)
-  const [current, setCurrent] = useState(-1) //0 is a first element. we need to compare so we need some number
+  const [current, setCurrent] = useState(-1)
 
-  const timeoutIdRef = useRef(null); //storing the ID of previous timeout function
+  const timeoutIdRef = useRef(null); 
   const rounds = useRef(0);
-  const currentInst = useRef(0); // highliter
+  const currentInst = useRef(0); 
 
-  //Sounds
   const gameOverAudio = useRef(new Audio(gameOverSound));
   const gameStartAudio = useRef(new Audio(soundGame));
 
@@ -35,15 +34,13 @@ function App() {
   let levelAmountCircles;
 
   const gameSetHandler = (level, name) => {
-    // it is from onclick('easy')
-    // based on level, we find the matching object from levels array, and then make a array for the circles, with amount in the object.
+   
     const levelIndex = levels.findIndex(element =>
       element.name === level);
 
-    levelAmountCircles = levels[levelIndex].amount //index of levels and adressing object. 
+    levelAmountCircles = levels[levelIndex].amount 
 
-    //const {amount} = levels.find((element) => element.name === level);
-    const circlesArray = Array.from({ length: levelAmountCircles }, (_, i) => i); //how many elements has to be there. put index inside. (_, i) => i) reserve place for element but we do not use it
+    const circlesArray = Array.from({ length: levelAmountCircles }, (_, i) => i); 
     setCircles(circlesArray);
     setPlayer(
       {
@@ -52,9 +49,8 @@ function App() {
       }
     )
 
-    setGameLaunch((prevState) => !prevState) // To be sure it goes and check the current state. (previousState + 1).This expression negates the previous state. !gameLaunch
+    setGameLaunch((prevState) => !prevState) 
     setGameStart(!gameStart)
-    //gameStartAudio.play();
     randomNumber()
   }
 
@@ -74,16 +70,14 @@ function App() {
   }
 
   const circleClickHandler = (id) => {
-    // console.log('circle was clicked:', id) // it takes some data from event
     if (current !== id) {
       stopHandler();
-      return; // it is like break here
+      return; 
     }
     setScore(score + 10);
     rounds.current--;
   };
 
-  // after gameLaunch it starts
   const randomNumber = () => {
     if (rounds.current >= 3) {
       stopHandler();
@@ -92,13 +86,13 @@ function App() {
     let nextActive;
 
     do {
-      nextActive = getRandomNumber(0, levelAmountCircles) // it has to compare //(0, circles.length) nextActive is same as current do it again
+      nextActive = getRandomNumber(0, levelAmountCircles)
     } while (nextActive === currentInst.current);//
 
     setCurrent(nextActive)
     currentInst.current = nextActive;
     rounds.current++;
-    timeoutIdRef.current = setTimeout(randomNumber, pace) // we will triger 
+    timeoutIdRef.current = setTimeout(randomNumber, pace) 
     pace *= 0.95;
   }
 

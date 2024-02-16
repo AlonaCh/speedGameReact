@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Tourney:wght@800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Tourney:wght@800&display=swap");
 
 :root {
-  font-family:'Tourney', sans-serif;
+  font-family: "Tourney", sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.87);
@@ -20,29 +20,28 @@ body {
   text-align: center;
   min-width: 320px;
   min-height: 100vh;
-
   background-size: cover;
   color: rgb(85, 57, 5);
-  font-family: 'Tourney', cursive;
+  font-family: "Tourney", cursive;
 }
-  h1 {
-    font-size: 80px;
-    text-shadow: 2px 2px #536004;
-  }
+h1 {
+  font-size: 80px;
+  text-shadow: 2px 2px #536004;
+}
 .overlayModal {
- position: fixed; 
+  position: fixed;
   left: 0;
   top: 0;
-  width: 100vw; 
-  height: 100vh; 
-  background-color: rgba(0, 0, 0, 0.4); 
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
   justify-content: center;
   align-items: center;
- display: flex;
+  display: flex;
 }
 
 .modal {
-  background-color:#E5CEB8;
+  background-color: #e5ceb8;
   margin: 2rem;
   padding: 3rem;
   border: 0.5px solid #553906;
@@ -54,7 +53,7 @@ body {
   align-items: center;
 }
 .close {
-  color: #E5CEB8;
+  color: #e5ceb8;
   border-radius: 20px;
   border: 0.5px solid #553906;
   padding: 8px;
@@ -64,62 +63,61 @@ body {
 }
 .circles {
   display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .circle {
   width: 150px;
   height: 150px;
-    border-radius: 50%;
-    border: dotted;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem;
+  border-radius: 50%;
+  border: dotted;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
 }
 .circle.active {
-    box-shadow: 3px 3px 1px 3px #553906;
- }
+  box-shadow: 3px 3px 1px 3px #553906;
+}
 
- .circle1.active  {
-    background-image: url(assets/hare1.jpg);
-    background-size: cover;
+.circle1.active {
+  background-image: url(assets/hare1.jpg);
+  background-size: cover;
 }
-.circle2.active  {
-    background-image: url(assets/hare4.jpg);
-    background-size: cover;
+.circle2.active {
+  background-image: url(assets/hare4.jpg);
+  background-size: cover;
 }
-.circle3.active  {
-    background-image: url(assets/hare6.jpg);
-    background-size: cover;
+.circle3.active {
+  background-image: url(assets/hare6.jpg);
+  background-size: cover;
 }
-.circle4.active  {
-    background-image: url(assets/hare.jpg);
-    background-size: cover;
+.circle4.active {
+  background-image: url(assets/hare.jpg);
+  background-size: cover;
 }
-.circle5.active  {
+.circle5.active {
   background-image: url(assets/hare2.jpg);
   background-size: cover;
 }
-.circle6.active  {
+.circle6.active {
   background-image: url(assets/hare.jpg);
   background-size: cover;
 }
-.circle7.active  {
+.circle7.active {
   background-image: url(assets/hare.jpg);
   background-size: cover;
 }
 
-input{
-  padding:1rem 2rem;
+input {
+  padding: 1rem 2rem;
   font-family: inherit;
   font-size: inherit;
   border-radius: 20px;
-  border: none;
   margin-bottom: 2.5rem;
   margin-top: 0.5rem;
   opacity: 0.7;
-  background-color: #B3A043;
+  background-color: #b3a043;
   border: 1px solid #553906;
 }
 input:focus {
@@ -136,9 +134,10 @@ input:focus {
   font-size: 20px;
   font-weight: bolder;
   color: rgb(85, 57, 5);
-  background-color: #B3A043;
+  background-color: #b3a043;
   opacity: 0.7;
 }
-.gameInfo, .greeting {
+.gameInfo,
+.greeting {
   font-size: 22px;
 }

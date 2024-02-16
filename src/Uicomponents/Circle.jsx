@@ -26,7 +26,7 @@ export default function Circle({ id, circleClickHandler, current }) {
 
         <div className={`circle ${circleImage} ${current ? 'active' : ''}`}
             id={`circle${id + 1}`}
-            onClick={() => { circleClickHandler(id); }}>
+            onClick={() => { circleClickHandler(id)}}>
         </div >
     )
 }
